@@ -1,10 +1,22 @@
-﻿<html>
+﻿
+
+<html>
 <head>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <title>@ViewData["Title"] - AspNetCore101.Web</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true"/>
 </head>
 <body>
-    <div>This is the _Layout content</div>
+    <div class="container">
 
-    @RenderBody()
+        <div class="well well-lg">This is the _Layout content</div>
+
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
+
+
 </body>
 </html>
