@@ -23,7 +23,8 @@ namespace SecretPal.Data.Tests
 
             // Create the database
             Db.Database.Migrate();
-        }
+
+         }
 
     }
 }

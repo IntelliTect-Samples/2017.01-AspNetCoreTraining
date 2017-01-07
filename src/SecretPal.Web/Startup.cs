@@ -63,6 +63,7 @@ namespace SecretPal.Web
             // Setup the database
             //AppDbContext db = app.ApplicationServices.GetService<AppDbContext>();
             db.Database.EnsureCreated();
+            DbInitializer.Initialize(db);
         }
     }
 }
