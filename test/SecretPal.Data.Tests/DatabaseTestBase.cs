@@ -7,7 +7,7 @@ namespace SecretPal.Data.Tests
 {
     public class DatabaseTestBase
     {
-        protected AppDbContext db { get; private set; }
+        protected AppDbContext Db { get; private set; }
 
         public DatabaseTestBase()
         {
@@ -16,13 +16,13 @@ namespace SecretPal.Data.Tests
                 "Server=(localdb)\\MSSQLLocalDB;Database=SecretSantaTest;Trusted_Connection=True;"
             );
 
-            db = new AppDbContext(dbOptionBuilder.Options);
+            Db = new AppDbContext(dbOptionBuilder.Options);
 
             // Wipe the database out first;
-            db.Database.EnsureDeleted();
+            Db.Database.EnsureDeleted();
 
             // Create the database
-            db.Database.Migrate();
+            Db.Database.Migrate();
         }
 
     }

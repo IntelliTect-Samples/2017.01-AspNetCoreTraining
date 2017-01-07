@@ -10,9 +10,9 @@ namespace SecretPal.Data.Tests
         [TestMethod]
         public void GiftCount()
         {
-            db.Gifts.Add(new Models.Gift() { Name = "Truck" });
-            db.SaveChanges();
-            Assert.AreEqual(1, db.Gifts.Count());
+            Db.Gifts.Add(new Models.Gift() { Name = "Truck" });
+            Db.SaveChanges();
+            Assert.AreEqual(1, Db.Gifts.Count());
         }
     }
 }
