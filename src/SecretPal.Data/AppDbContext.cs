@@ -6,7 +6,7 @@ namespace SecretPal.Data
 {
     public class AppDbContext:DbContext
     {
-        DbSet<Gift> Gifts { get; set; }
+        public DbSet<Gift> Gifts { get; set; }
 
 
         public AppDbContext()
