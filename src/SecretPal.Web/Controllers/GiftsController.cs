@@ -149,5 +149,11 @@ namespace SecretPal.Web.Controllers
         {
             return _context.Gifts.Any(e => e.GiftId == id);
         }
+
+        [HttpGet]
+        public decimal TotalCost()
+        {
+            return Gift.TotalCost(_context);
+        }
     }
 }

@@ -8,5 +8,18 @@
         <p>
             <a asp-controller="Gifts" asp-action="index">Gifts</a>
         </p>
+        <p>Total Cost: <span id="total-cost"></span> </p>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        // Show the gift total via ajax.
+        $(function () {
+            $.get('/gifts/totalcost')
+                .done(function (data) {
+                    $("#total-cost").html('$' + Number(data).toFixed(2));
+                })
+        });
+</script>
+}
