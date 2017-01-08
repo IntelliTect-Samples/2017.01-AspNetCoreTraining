@@ -12,8 +12,8 @@ namespace SecretPal.Data
         {
             if (!db.Gifts.Any())
             {
-                db.Gifts.Add(new Gift() { Name = "Truck" });
-                db.Gifts.Add(new Gift() { Name = "Doll" });
+                db.Gifts.Add(new Gift() { Name = "Truck", Cost = 10 });
+                db.Gifts.Add(new Gift() { Name = "Doll", Cost = 20});
                 db.SaveChanges();
             }
         }

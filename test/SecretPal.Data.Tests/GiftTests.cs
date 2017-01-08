@@ -1,6 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using SecretPal.Data.Models;
 
 namespace SecretPal.Data.Tests
 {
@@ -33,6 +34,17 @@ namespace SecretPal.Data.Tests
             Db.Gifts.RemoveRange(Db.Gifts);
             Db.SaveChanges();
             Assert.AreEqual(0, Db.Gifts.Count());
+        }
+
+
+        /// <summary>
+        /// Make 
+        /// </summary>
+        [TestMethod]
+        public void CostTotal()
+        {
+            DbInitializer.Initialize(Db);
+            Assert.AreEqual(30, Gift.TotalCost(Db));
         }
     }
 }

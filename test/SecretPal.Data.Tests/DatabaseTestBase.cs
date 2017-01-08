@@ -13,7 +13,7 @@ namespace SecretPal.Data.Tests
         {
             var dbOptionBuilder = new DbContextOptionsBuilder();
             dbOptionBuilder.UseSqlServer(
-                "Server=(localdb)\\MSSQLLocalDB;Database=SecretSantaTest;Trusted_Connection=True;"
+                "Server=(localdb)\\MSSQLLocalDB;Database=SecretPalTest;Trusted_Connection=True;"
             );
 
             Db = new AppDbContext(dbOptionBuilder.Options);

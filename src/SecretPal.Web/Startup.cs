@@ -63,6 +63,10 @@ namespace SecretPal.Web
             // Setup the database
             //AppDbContext db = app.ApplicationServices.GetService<AppDbContext>();
             db.Database.EnsureCreated();
+
+            // Apply migrations explicitly
+            db.Database.Migrate();
+
             DbInitializer.Initialize(db);
         }
     }
