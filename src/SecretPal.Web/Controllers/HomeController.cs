@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SecretPal.Data;
+using SecretPal.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace SecretPal.Web.Controllers
         {
             ViewData["Title"] = "Home Page";
             ViewBag.GiftCount = Db.Gifts.Count();
+            ViewBag.GiftCost = Gift.TotalCost(Db);
             return View();
         }
     }
