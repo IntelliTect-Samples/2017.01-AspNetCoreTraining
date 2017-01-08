@@ -5,7 +5,7 @@ using System.Linq;
 namespace SecretPal.Data.Tests
 {
     [TestClass]
-    public class GiftTests: DatabaseTestBase
+    public class GiftTests: InMemoryTestBase
     {
         [TestMethod]
         public void GiftCount()
