@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using SecretPal.Data;
+using Microsoft.ApplicationInsights.AspNetCore;
 
 namespace SecretPal.Web
 {
@@ -37,6 +38,8 @@ namespace SecretPal.Web
             // Add framework services.
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
         }

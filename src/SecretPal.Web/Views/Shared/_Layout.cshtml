@@ -5,6 +5,8 @@
     <title>@ViewData["Title"] - AspNetCore101.Web</title>
 
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true"/>
+
+    @Html.Raw(snippet.FullScript)
 </head>
 <body>
     <div class="container">
