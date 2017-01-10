@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SecretPal.Data;
 using SecretPal.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SecretPal.Web.Controllers
 {
+    [Authorize]
     public class GiftsController : Controller
     {
         private readonly AppDbContext _context;

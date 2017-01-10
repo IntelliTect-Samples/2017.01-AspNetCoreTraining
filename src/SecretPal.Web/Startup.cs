@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using SecretPal.Data;
 using Microsoft.ApplicationInsights.AspNetCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using SecretPal.Data.Models;
+using SecretPal.Web.Services;
 
 namespace SecretPal.Web
 {
@@ -39,9 +42,21 @@ namespace SecretPal.Web
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            }
+            )
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
+
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +70,8 @@ namespace SecretPal.Web
             }
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
