@@ -1,5 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@using Microsoft.ApplicationInsights.AspNetCore
+@addTagHelper *, SecretPal.Web
+    @using Microsoft.ApplicationInsights.AspNetCore
 @inject JavaScriptSnippet snippet
 @using SecretPal.Data.Models
 @using SecretPal.Web.Models
